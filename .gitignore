@@ -1,0 +1,6 @@
+.gne-cache/
+.cache/
+*.so
+*.dylib
+*.dll
+data.txt

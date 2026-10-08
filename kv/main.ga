@@ -1,0 +1,18 @@
+// Program uji ekstensi kv: state per-modul + persistensi berkas.
+// Pola ini dipakai ekstensi Database/Redis (state di set_data).
+use "kv"
+
+kv.set("nama", "Garurda")
+kv.set("port", "8869")
+print(kv.get("nama"))
+print(kv.get("port"))
+print(kv.get("tidak-ada"))
+print(kv.has("nama"))
+print(kv.count())
+print(kv.del("port"))
+print(kv.count())
+
+// simpan lalu muat ulang — bukti persistensi sederhana
+kv.save("data.txt")
+print(kv.load("data.txt"))
+print(kv.get("nama"))

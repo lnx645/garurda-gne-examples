@@ -1,0 +1,31 @@
+// Program uji ekstensi hello: fungsi, throw catchable, method,
+// callback ke closure Garurda, dan state antar panggilan.
+use "hello"
+
+print(hello.add(20, 42))
+print(hello.join("a", "b", "c"))
+
+try {
+  hello.boom()
+  print("tidak")
+} catch e {
+  print(e.code + "/" + str(e.status) + "/" + e.message)
+}
+
+try {
+  hello.add("x", 1)
+} catch e {
+  print("tipe:" + e.code)
+}
+
+$c = hello.counter
+print($c.next())
+print($c.next())
+
+print(hello.twice(fn($x) {
+  return $x * 10
+}))
+
+hello.stash(999)
+print(hello.unstash())
+print(hello.calls())
